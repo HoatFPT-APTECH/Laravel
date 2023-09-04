@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <p> trang vong lap voi du lieu: Độ dài mảng truyền mảng :  {{sizeof($danhsach)}}
+        {{-- <p> trang vong lap voi du lieu: Độ dài mảng truyền mảng :  {{sizeof($danhsach)}}
         </br>
         {{$danhsach2['key1']}}
         <p>  user1: Tên:  {{$user1->ten}} 
@@ -21,7 +21,8 @@
         </br>
          Tuổi: {{$user2->tuoi}}
         </p>
-        </p>
+        </p> --}}
+        <h3> Table : User</h3>
         <table class="table">
             <thead>
               <tr>

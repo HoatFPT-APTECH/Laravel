@@ -10,8 +10,13 @@ class helloController extends Controller
 {
  public   $ten='hoat';// kiểu dữ liệu string
   public $hinhdang=0;// kiểu dữ liệu dạng int, (số)
+  public $danhsach = array();
 //   key=> value
  public $danhsach2= array("key1"=>4, "key1"=> 10, "key3"=>"hoat");
+ public function __construct()
+ {
+  
+ }
 //   public  $danhsach= array( 
 //     array(
 //     "name"=>"hoat",
@@ -25,7 +30,7 @@ class helloController extends Controller
 //         "gioitinh"=>0
 //     )
 //   );
-public $danhsach = array();
+
     public function vietcode(){
         return view('hello',['ten'=>$this->ten]);
         // [] : mang
@@ -44,5 +49,18 @@ public $danhsach = array();
         ]
         );
     }
+     public function indexCreateForm(){
+      return view('createForm');
+     }
+     public function createForm(Request $request){
+      $ten= $request->input("ten");
+      $nghenghiep= $request->input("nghenghiep");
+      $gioitinh= $request->input('gioitinh');
+      $tuoi = $request->input("tuoi");
+      $user3= new User($ten,$tuoi,$nghenghiep,$gioitinh);
+      array_push($this->danhsach,$user3);
+      return view('showCreateForm',['danhsach'=>$this->danhsach]);
+     }
+ 
 
 }

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\employeeController;
 use App\Http\Controllers\helloController;
+use App\Models\employee;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,13 @@ Route::get('/', function () {
 });
 Route::get('/hello',[helloController::class,'vietcode']);
 Route::get('/vonglap',[helloController::class,'showLoop']);
+Route::get('/addUser',[helloController::class,'indexCreateForm']);
+Route::post('/addUserP',[helloController::class,'createForm']);
+Route::group(['prefix'=>"employee"],function(){
+   Route::get('index',[employeeController::class,'index']);
+   Route::get('create',[employeeController::class,'create']);
+   Route::post('store',[employeeController::class,'store']);
+   Route::get('edit/{id}',[employeeController::class,'edit']);
+   Route::post('update/{id}',[employeeController::class,'update']);
+
+});
